@@ -39,9 +39,12 @@ data_culturales <- data_culturales %+% theme(axis.text.x = element_blank())
 data_culturales <- data_culturales %+% theme(axis.title.x = element_blank())
 data_culturales <- data_culturales %+% theme(axis.line.y = element_line())
 data_culturales <- data_culturales %+% theme(axis.title.y = element_blank())
-data_culturales <- data_culturales %+% labs(title = "Frecuencia de palabra", subtitle = "Obstaculizadores culturales")
+data_culturales <- data_culturales %+% labs(title = "Frecuencia de palabras", subtitle = "Obstaculizadores culturales")
 data_culturales <- data_culturales %+% coord_flip()
 data_culturales
+
+cult <- grid.arrange(plot_cult_data,data_culturales, ncol = 2)
+ggsave("cult.jpg", plot = cult, width = 10, height = 4)
 
 ####OBSTACULIZADORES INSTITUCIONALES####
 obstaculos_inst_palabras <- unidad_data %>% filter(familia == "Obstaculizadores institucionales")
@@ -72,9 +75,13 @@ data_institucionales <- data_institucionales %+% theme(axis.text.x = element_bla
 data_institucionales <- data_institucionales %+% theme(axis.title.x = element_blank())
 data_institucionales <- data_institucionales %+% theme(axis.line.y = element_line())
 data_institucionales <- data_institucionales %+% theme(axis.title.y = element_blank())
-data_institucionales <- data_institucionales %+% labs(title = "Frecuencia de palabra", subtitle = "Obstaculizadores institucionales")
+data_institucionales <- data_institucionales %+% labs(title = "Frecuencia de palabras", subtitle = "Obstaculizadores institucionales")
 data_institucionales <- data_institucionales %+% coord_flip()
 data_institucionales
+
+inst <- grid.arrange(plot_inst_data,data_institucionales, ncol = 2)
+ggsave("inst.jpg", plot = inst, width = 10, height = 4)
+
 
 ####ROL DEL ESTADO####
 rol_estado_palabras <- unidad_data %>% filter(familia == "Rol del Estado")
@@ -105,9 +112,12 @@ data_rol_estado <- data_rol_estado %+% theme(axis.text.x = element_blank())
 data_rol_estado <- data_rol_estado %+% theme(axis.title.x = element_blank())
 data_rol_estado <- data_rol_estado %+% theme(axis.line.y = element_line())
 data_rol_estado <- data_rol_estado %+% theme(axis.title.y = element_blank())
-data_rol_estado <- data_rol_estado %+% labs(title = "Frecuencia de palabra", subtitle = "Rol del Estado")
+data_rol_estado <- data_rol_estado %+% labs(title = "Frecuencia de palabras", subtitle = "Rol del Estado")
 data_rol_estado <- data_rol_estado %+% coord_flip()
 data_rol_estado
+
+estado <- grid.arrange(plot_estado_data,data_rol_estado, ncol = 2)
+ggsave("estado.jpg", plot = estado, width = 10, height = 4)
 
 ####ROL DE EMPRESAS####
 rol_empresas_palabras <- unidad_data %>% filter(familia == "Rol de la empresa")
@@ -138,6 +148,9 @@ data_rol_empresas <- data_rol_empresas %+% theme(axis.text.x = element_blank())
 data_rol_empresas <- data_rol_empresas %+% theme(axis.title.x = element_blank())
 data_rol_empresas <- data_rol_empresas %+% theme(axis.line.y = element_line())
 data_rol_empresas <- data_rol_empresas %+% theme(axis.title.y = element_blank())
-data_rol_empresas <- data_rol_empresas %+% labs(title = "Frecuencia de palabra", subtitle = "Rol de empresas")
+data_rol_empresas <- data_rol_empresas %+% labs(title = "Frecuencia de palabras", subtitle = "Rol de empresas")
 data_rol_empresas <- data_rol_empresas %+% coord_flip()
 data_rol_empresas
+
+empresas <- grid.arrange(plot_empresa_data,data_rol_empresas, ncol = 2)
+ggsave("empresas.jpg", plot = empresas, width = 10, height = 4)
