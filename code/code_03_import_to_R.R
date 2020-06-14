@@ -47,3 +47,6 @@ View(unidad_data)
 
 write.csv(unidad_data, file="Codificacion.csv", row.names = F)
 
+#### Print html 
+unidad_data_1 <- unidad_data[3:7,2:4]
+unidad_data_html <- unidad_data_1 %>% kable() %>% kable_styling()
